@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-ingress-mon
+  namespace: default
+  
+spec:
+  selector: 
+    app.kubernetes.io/component: controller
+  type: NodePort  
+  ports:
+    - port: 10254
+      targetPort: 10254
+      nodePort: 32060
